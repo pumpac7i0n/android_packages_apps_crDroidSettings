@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2016-2024 crDroid Android Project
+     Copyright (C) 2016-2024 Sigma Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,7 +17,12 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:lineage="http://schemas.android.com/apk/res-auto"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/navigation_title">
+
+    <com.android.settingslib.widget.IllustrationPreference
+        android:key="nav_illustration"
+        lineage:lottie_rawRes="@raw/nav_illustration" />
 
     <SwitchPreferenceCompat
         android:key="navbar_visibility"
@@ -25,43 +30,13 @@
         android:title="@string/navbar_visibility_title"
         android:summary="@string/navbar_visibility_summary" />
 
-    <com.crdroid.settings.preferences.SystemSettingSwitchPreference
+    <com.sigma.settings.preferences.SystemSettingSwitchPreference
         android:key="pixel_nav_animation"
         android:icon="@drawable/ic_google_circles"
         android:title="@string/pixel_navbar_anim_title"
         android:summary="@string/pixel_navbar_anim_summary"
         android:defaultValue="true"
         android:dependency="navbar_visibility" />
-
-    <PreferenceCategory
-        android:key="navbar_layout_category"
-        android:title="@string/navbar_layout_category_title"
-        android:dependency="navbar_visibility">
-
-        <lineageos.preference.LineageSystemSettingSwitchPreference
-            android:key="navigation_bar_menu_arrow_keys"
-            android:icon="@drawable/ic_arrow_keys"
-            android:title="@string/navbar_arrow_keys_title"
-            android:summary="@string/navbar_arrow_keys_summary"
-            android:defaultValue="false" />
-
-        <com.crdroid.settings.preferences.SecureSettingListPreference
-            android:key="navbar_layout_views"
-            android:icon="@drawable/ic_navbar_layout"
-            android:title="@string/navbar_layout_title"
-            android:summary="%s"
-            android:entries="@array/navbar_layout_entries"
-            android:entryValues="@array/navbar_layout_values"
-            android:defaultValue="default" />
-
-        <com.crdroid.settings.preferences.SecureSettingSwitchPreference
-            android:key="navbar_inverse_layout"
-            android:icon="@drawable/ic_navbar_layout"
-            android:title="@string/navbar_invert_layout_title"
-            android:summary="@string/navbar_invert_layout_summary"
-            android:defaultValue="false" />
-
-    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="navbar_actions_category"
